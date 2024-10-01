@@ -13,7 +13,13 @@ zapAddOn {
         author.set("FBK")
         extensions {
             register("org.example.ExtensionZAP")
-
+        }
+        dependencies {
+            addOns {
+                register("network") {
+                    version.set(">=0.11.0")
+                }
+            }
         }
     }
 }
@@ -23,6 +29,7 @@ repositories {
 }
 
 dependencies {
+    zapAddOn("network")
     implementation("org.json:json:20240303") // Versione aggiornata di org.json
     implementation("com.nimbusds:nimbus-jose-jwt:9.31") // Versione aggiornata di nimbus-jose-jwt
     implementation("org.bouncycastle:bcpkix-jdk15on:1.70") // Versione aggiornata di bcpkix-jdk15on
